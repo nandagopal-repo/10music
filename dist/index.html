@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-page1">
+        <div class="logo-section">
+            <h1 class="logo">10music</h1>
+            <p class="credits">The below data are from <strong>deezer</strong> api</p>
+        </div>
+        
+        <div class="search-section">
+            <input type="text" class="search-field" placeholder="enter song name" id="searchField">
+            <button class="search-btn" id="searchBtn">search</button>
+            <img src="assert/back.svg" class="home-btn" id="homeBtn" alt="back to home icon">
+        </div>
+    </header>
+
+    <main class="main-container" id="mainContainer">
+        <ul class="song-holding-container" id="songHoldingContainer">
+            <!-- <li class="song-container">
+                <img class="song-image" src="" alt="song-image">
+                <div>
+                    <h1 class="song-name">songname</h1>
+                    <h2 class="song-author-name">singername</h2>
+                </div>
+            </li> -->
+        </ul>
+    </main>
+
+    
+
+    <div class="control-section">
+        <audio src="" id="audio"></audio>
+        <div id="songProgress" class="song-progress"></div>
+        <h3 class="song-title" id="songTitle"></h3>
+        <div class="nav-btn-container">
+            <img src="assert/previous.svg" id="previousSongBtn" alt="privious song button" class="nav-btn">
+            <img src="assert/play.svg" id="playPauseBtn" alt="pause play button" class="nav-btn play-btn">
+            <img src="assert/next.svg" id="nextSongBtn" alt="next song button" class="nav-btn">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

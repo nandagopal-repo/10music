@@ -1,0 +1,198 @@
+@import 'global';
+@import 'variables';
+
+body{
+    background-color: $black;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+// header section:
+.header-page1{
+    width: 100%;
+    height: 22vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $purpleHaze;
+}
+
+
+
+.logo{
+    margin: 0 5px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $purple;
+}
+
+.credits{
+    font-size: .7rem;
+    color: $purple;
+    margin: 5px;
+    margin-top: 0px;
+}
+
+.search-section{
+    margin: 5px;
+    padding: 5px;
+    padding-left: 0px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    .home-btn{
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        transform: scale(.8);
+        transition: transform 250ms ease-out;
+        display: none;
+
+        &:hover{
+            transform: scale(1);
+        }
+    }
+
+    .search-field{
+        font-size: 1rem;
+        margin: 5px;
+        margin-right: 10px;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .search-btn{
+        font-size: 1rem;
+        border: 1px solid black;
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+}
+
+
+
+.song-holding-container{
+    height: 67vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.song-container{
+    cursor: pointer;
+    padding: 3px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $black;
+
+    &:hover{
+        background-color: rgb(77, 57, 77);
+    }
+
+    .song-image{
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        margin-left: 3px;
+        border-radius: 3px;
+    }
+    .song-name{
+        font-size: 1.1rem;
+        color: white;
+    }
+    .song-author-name{
+        font-size: .8rem;
+        color: $purpleHaze;
+    }
+}
+
+.control-section{
+    background-color: $purpleHaze;
+    width: 100%;
+    height: 12vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    .song-progress{
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: purple;
+        height: 8px;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+
+    .song-title{
+        margin: 5px;
+        color: black;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .nav-btn-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-btn{
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        cursor: pointer;
+        transform: scale(.9);
+        transition: transform 300ms ease,
+                    box-shadow 300ms ease;
+
+        &:hover{
+            transform: scale(1);
+            box-shadow: 2px 2px 20px 2px white;
+        }
+    }
+
+    .play-btn{
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+
+@media only screen and (min-width: 500px) {
+    .header-page1{
+        height: 17vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .song-holding-container{
+        height: 72vh;
+    }
+}
