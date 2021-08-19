@@ -1,15 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 16px;
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
@@ -30,30 +28,26 @@ a {
 img {
   max-width: 100%;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 body {
   background-color: #0E050F;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: -webkit-fill-available;
   overflow: hidden;
 }
 
 .header-page1 {
   width: 100%;
-  height: 22vh;
+  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-around;
   background-color: #9388A2;
 }
 
@@ -76,19 +70,10 @@ body {
   padding: 5px;
   padding-left: 0px;
   margin-left: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .search-section .home-btn {
@@ -96,18 +81,13 @@ body {
   width: 35px;
   height: 35px;
   margin: 5px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-  -webkit-transition: -webkit-transform 250ms ease-out;
-  transition: -webkit-transform 250ms ease-out;
+  transform: scale(0.8);
   transition: transform 250ms ease-out;
-  transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
   display: none;
 }
 
 .search-section .home-btn:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
 .search-section .search-field {
@@ -130,7 +110,8 @@ body {
 }
 
 .song-holding-container {
-  height: 67vh;
+  height: 68vh;
+  height: calc(var(--vh, 1vh) * 68);
   overflow: hidden;
   overflow-y: scroll;
   padding: 10px;
@@ -140,19 +121,10 @@ body {
   cursor: pointer;
   padding: 3px;
   margin: 10px 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   background-color: #0E050F;
 }
 
@@ -182,19 +154,12 @@ body {
   background-color: #9388A2;
   width: 100%;
   height: 12vh;
+  height: calc(var(--vh, 1vh) * 12);
   padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   position: relative;
 }
 
@@ -206,7 +171,6 @@ body {
   background-color: purple;
   height: 8px;
   width: 0%;
-  -webkit-transition: width 0.1s linear;
   transition: width 0.1s linear;
 }
 
@@ -220,19 +184,10 @@ body {
 }
 
 .control-section .nav-btn-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .control-section .nav-btn {
@@ -241,45 +196,62 @@ body {
   height: 30px;
   margin: 10px;
   cursor: pointer;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  -webkit-transition: -webkit-transform 300ms ease, -webkit-box-shadow 300ms ease;
-  transition: -webkit-transform 300ms ease, -webkit-box-shadow 300ms ease;
+  transform: scale(0.9);
   transition: transform 300ms ease, box-shadow 300ms ease;
-  transition: transform 300ms ease, box-shadow 300ms ease, -webkit-transform 300ms ease, -webkit-box-shadow 300ms ease;
 }
 
 .control-section .nav-btn:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-box-shadow: 2px 2px 20px 2px white;
-          box-shadow: 2px 2px 20px 2px white;
+  transform: scale(1);
+  box-shadow: 2px 2px 20px 2px white;
 }
 
 .control-section .play-btn {
+  margin: 5px;
   width: 40px;
   height: 40px;
+  z-index: 10;
+  position: relative;
+}
+
+.control-section .loading {
+  z-index: 1;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 5px solid transparent;
+  border-left: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1);
+  animation-iteration-count: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media only screen and (min-width: 500px) {
   .header-page1 {
-    height: 17vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    height: 16vh;
+    height: calc(var(--vh, 1vh) * 16);
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   .song-holding-container {
     height: 72vh;
+    height: calc(var(--vh, 1vh) * 72);
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .search-section {
+    flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */

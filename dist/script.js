@@ -36,15 +36,32 @@ const homeBtn = document.querySelector('#homeBtn');
 const playPauseBtn = document.querySelector('#playPauseBtn');
 const nextSongBtn = document.querySelector('#nextSongBtn');
 const previousSongBtn = document.querySelector('#previousSongBtn');
+const loader = document.querySelector('#loading');
 // global variables:
 let trackNumber = 0;
 let isPlaying = "false";
 let tracks = [];  //get tracks from fetch function:
 
 
+// ---------------------------------------adjuct mobile vh unit---------------------------------
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+//----------------------------------------------------------------------------------------------
 
 
 async function fetchFunction(url){
+    loader.style.display = "block";
+    loader.style.animation = "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite";
+    playPauseBtn.style.opacity = "0";
     return await fetch(url, {
         "method": "GET",
         "headers": {
@@ -54,6 +71,9 @@ async function fetchFunction(url){
     })
     .then(response => response.json())
     .then(response => {
+        loader.style.animation = "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1)";
+        playPauseBtn.style.opacity = "1";
+        loader.style.display = "none";
         return response;
     })
     .catch(err => console.log(err));
@@ -139,6 +159,7 @@ function updateProgressBar(e){
 searchBtn.addEventListener('click',()=>{
     if(searchInput.value === '' || searchInput.value === null) return;
     const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchInput.value}`;
+    loader.style.animation = "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite";
     const searchTracks = fetchFunction(url);
     searchTracks.then(response => {
         let playList = response.data;
@@ -149,7 +170,7 @@ searchBtn.addEventListener('click',()=>{
         })
     });
     searchInput.value = '';
-    homeBtn.style.display = "block"
+    homeBtn.style.display = "block";
 });
 
 //user to play song from the screen;
