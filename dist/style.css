@@ -34,16 +34,13 @@ img {
 body {
   background-color: #0E050F;
   width: 100%;
-  min-height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  min-height: -webkit-fill-available;
+  height: 100vh;
   overflow: hidden;
 }
 
 .header-page1 {
   width: 100%;
-  height: 20vh;
-  height: calc(var(--vh, 1vh) * 20);
+  height: 22%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -109,9 +106,12 @@ body {
   cursor: pointer;
 }
 
+.main-container {
+  height: 65%;
+}
+
 .song-holding-container {
-  height: 68vh;
-  height: calc(var(--vh, 1vh) * 68);
+  height: 100%;
   overflow: hidden;
   overflow-y: scroll;
   padding: 10px;
@@ -153,8 +153,7 @@ body {
 .control-section {
   background-color: #9388A2;
   width: 100%;
-  height: 12vh;
-  height: calc(var(--vh, 1vh) * 12);
+  height: 13%;
   padding: 5px;
   display: flex;
   flex-direction: row;
@@ -196,13 +195,6 @@ body {
   height: 30px;
   margin: 10px;
   cursor: pointer;
-  transform: scale(0.9);
-  transition: transform 300ms ease, box-shadow 300ms ease;
-}
-
-.control-section .nav-btn:hover {
-  transform: scale(1);
-  box-shadow: 2px 2px 20px 2px white;
 }
 
 .control-section .play-btn {
@@ -236,16 +228,25 @@ body {
 
 @media only screen and (min-width: 500px) {
   .header-page1 {
-    height: 16vh;
-    height: calc(var(--vh, 1vh) * 16);
+    height: 18%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  .song-holding-container {
-    height: 72vh;
-    height: calc(var(--vh, 1vh) * 72);
+  .main-container {
+    height: 70%;
+  }
+  .control-section {
+    height: 12%;
+  }
+  .control-section .nav-btn {
+    transform: scale(0.9);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .control-section .nav-btn:hover {
+    transform: scale(1);
+    box-shadow: 2px 2px 20px 2px white;
   }
 }
 

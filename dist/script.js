@@ -76,7 +76,10 @@ async function fetchFunction(url){
         loader.style.display = "none";
         return response;
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.log(err);
+        alert("Results not found!");
+    });
 }
 
 function findSong(e){
@@ -104,6 +107,23 @@ function playSong(name,source){
     audio.play();
     isPlaying = "true";
     playPauseBtn.setAttribute('src',"assert/pause.svg");
+}
+
+function getSearchedPlaylist(){
+    if(searchInput.value === '' || searchInput.value === null) return;
+    const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchInput.value}`;
+    loader.style.animation = "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite";
+    const searchTracks = fetchFunction(url);
+    searchTracks.then(response => {
+        let playList = response.data;
+        renderTracks(playList,songsHoldingContainer);
+        tracks.splice(0, tracks.length);
+        playList.forEach(track=>{
+            tracks.push(track);
+        })
+    });
+    searchInput.value = '';
+    homeBtn.style.display = "block";
 }
 
 function getPlaylist(){
@@ -156,22 +176,12 @@ function updateProgressBar(e){
 
 //---------------------------------------Event Listners-------------------------------------------//
 // user to search songs by song name:
-searchBtn.addEventListener('click',()=>{
-    if(searchInput.value === '' || searchInput.value === null) return;
-    const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchInput.value}`;
-    loader.style.animation = "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite";
-    const searchTracks = fetchFunction(url);
-    searchTracks.then(response => {
-        let playList = response.data;
-        renderTracks(playList,songsHoldingContainer);
-        tracks.splice(0, tracks.length);
-        playList.forEach(track=>{
-            tracks.push(track);
-        })
-    });
-    searchInput.value = '';
-    homeBtn.style.display = "block";
-});
+searchBtn.addEventListener('click',getSearchedPlaylist);
+searchInput.addEventListener('click',(e)=>{
+    if(e.keyCode === 13){
+        getSearchedPlaylist();
+    }
+})
 
 //user to play song from the screen;
 songsHoldingContainer.addEventListener('click',findSong);
