@@ -44,6 +44,9 @@ let tracks = [];  //get tracks from fetch function:
 
 // ---------------------------------------adjuct mobile vh unit---------------------------------
 document.querySelector('body').style.height = `${window.innerHeight}px`
+if(window.innerHeight < 600){
+    document.querySelector('body').style.fontSize = "10px";
+}
 //----------------------------------------------------------------------------------------------
 
 
@@ -141,9 +144,9 @@ function renderTracks(tracks,container){
     tracks.forEach(track => {
         const songContainer = document.createElement('li');
         songContainer.classList.add('song-container');
-        if(track.album.cover_xl === '' || track.album.cover_xl === null || track.preview === "") return;
+        if(track.album.cover_small === '' || track.album.cover_small === null || track.preview === "") return;
         songContainer.innerHTML = `
-            <img src="${track.album.cover_xl}" id="${i}" alt="song image" class="song-image">
+            <img src="${track.album.cover_small}" id="${i}" alt="song image" class="song-image">
             <div>
                 <h1 class="song-name" id="${i}">${track.title_short}</h1>
                 <h2 class="song-author-name" id="${i}">${track.artist.name}</h2>
