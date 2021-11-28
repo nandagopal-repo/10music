@@ -80,21 +80,19 @@ function findSong(e){
         e.target.className === 'song-image' ||
         e.target.className === 'song-container'){
         trackNumber = e.target.id;
-        // console.log(trackNumber);
         findSource(trackNumber);
     }
 }
 
 function findSource(trackNumber){
-    if(trackNumber < 0 || trackNumber > 49) return;
     let songName =  tracks[trackNumber].title_short;
     let songSource =  tracks[trackNumber].preview;
+    console.log(trackNumber,songName,"-",songSource)
     playSong(songName,songSource);
 }
 
 function playSong(name,source){
     songTitle.innerText = name;
-    // console.log(name);
     audio.setAttribute('src',`${source}`);
     audio.play();
     isPlaying = "true";
@@ -126,7 +124,7 @@ function getPlaylist(){
         renderTracks(playList,songsHoldingContainer);
         tracks.splice(0, tracks.length); //empty previous tracks:
         playList.forEach(track=>{
-            if(track.preview === '' || track.preview === null) return;
+            if(track.preview === "" || track.preview === null) return;
             tracks.push(track); //add tracks:
         });
     })
@@ -197,12 +195,19 @@ playPauseBtn.addEventListener('click',()=>{
 
 nextSongBtn.addEventListener('click',()=>{
     trackNumber++;
+    if (trackNumber >= tracks.length ){
+        trackNumber -= 1
+        return
+    }
     findSource(trackNumber);
 });
 
 previousSongBtn.addEventListener('click',()=>{
-    if(trackNumber === 0) return;
     trackNumber--;
+    if(trackNumber < 0){
+        trackNumber += 1
+        return
+    } 
     findSource(trackNumber);  
 });
 
